@@ -1,0 +1,35 @@
+Plan of Putting it into Operation to Make Monitoring and Alerting with Grafana
+
+1. Plan Out Monitoring and Alerting:1. Plan Out Monitoring and Alerting:
+Metrics Collected: Create, or define the, KPIs of the microservice application including CPU usage, memory consumption, response time, error rate, and request rate. Utilize Grafana to visualize these metrics.
+
+Alerting: set up Grafana’s alerting rules for critical thresholds, like high memory usage, delayed responses times, and increased error rates. Alert sits be configured to be direct emails, Slack, or other channels that are supported.
+
+Deployment: Docker container will be deployed with Grafana so that the service would conform to the microservice infrastructure already in operation. The deployment will include volume mounts for persistent storage of Grafana configuration and dashboards.
+
+Setup: Configure Grafana with independent data sources (Prometheus and Loki) to collect metrics and logs from the application containing multiple microservices. This step includes providing data source URLs and details pertaining authentication if necessary.
+
+2. Experiment with Sample Applications:
+Familiarization: Taking advantage of Grafana's built-in sample dashboards will help to get a general idea on the process of dashboard creation, metric querying, and the visualization options, including charts, tables, and gauges.
+
+Tool Exploration: Explore the Grafana features like annotations, variables, and the Explore interface to query logs and visualize data.
+
+3. Utilize Prebuilt Dashboards:
+Dashboard Selection: Identify and bring on-board prebuilt Grafana dashboards which are useful in tracking technologies applied in the microservice application (e.g., containers running Prometheus metrics, Kubernetes cluster monitoring dashboards).
+
+Customization: Customize imported dashboards in regards to focus on the key metrics identified for the project, adjusting visualization panels and queries as necessary.
+
+4. Documentation and Repository Management:
+Create a Repository: A GitHub repo will be created and which should contain monitoring configurations such as Grafana dashboard configuration, alerting rules and setup instructions.
+
+Documentation: Produce markdown files and put them into docs directory in the repository. Documentation should cover:
+•	Provide instructions for Grafana configuration, including how to install and run it using Docker.
+•	Guides that are easy to follow and can be configured to connect Grafana to a data source.
+•	The description of the steps of the import and customizations of prebuilt dashboards.
+•	Alerting configuration, which includes the alert set up and settings.
+•	An outline of the main metrics we observed and for the reasons behind them.
+
+Commit and Share: Push the documentation into the GitHub repository and share the repository link with the project team to ensure that the documentation is accessible and easy to work with;
+
+Summary
+Therefore this system architecture allows to bring the complete monitoring and alerting setup with Grafana, totally configured for fault-tolerant microservice-based application. I will lay out the important metrics, give Grafana a try, refer to some out-of-the-box dashboards for a quick start, and thoroughly document my work. Hence, I will establish an effective monitoring solution that enhances the observability and reliability of the microservice application.
