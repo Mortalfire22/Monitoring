@@ -1,1 +1,99 @@
+ Grafana Monitoring Documentation
+
+Introduction to Grafana
+Overview
+Grafana is an analytics and interactive visualization web application.It provides charts, graphs, and alerts for the web when connected to supported data sources.
+
+Benefits
+•	Real-time analytics and visualization.
+•	Highly customizable dashboards with multiple integrations.
+•	Alerting mechanism for quick responsiveness.
+
+Setting up Grafana
+Prerequisites for Installation
+•	Docker must be installed on your system.
+•	Basic knowledge of Docker command-line usage.
+
+Installation with Docker
+This is easiest way Start Grafana using Docker:
+“  docker run -d -p 3000:3000 --name=grafana grafana/Grafana ”
+
+If Grafana need to add project with multiple containers have to run Grafana via Docker compose.
+1.	Create a docker-compose.yaml file.
+
+# first go into the directory where you have created this docker-compose.yaml file
+cd /path/to/docker-compose-directory
+
+# now create the docker-compose.yaml file
+touch docker-compose.yaml
+
+2.	After that need to add this code to yaml file.
+
+version: "3.8"
+services:
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+     - '3000:3000'
+
+3.	To run the file. Need to run this code via terminal.
+“docker compose up -d”
+
+Accessing the Web Interface
+•	Access Grafana by navigating to `http://localhost:3000` on your web browser.
+•	Default login is `admin` for the username and password.
+
+Initial Configuration
+•	Change the default password after the first login.
+•	Set up data source configurations and basic user preferences.
+
+Connecting Grafana to Data Sources
+•	Adding Prometheus as a Data Source
+•	Make sure Prometheus is running and accessible.
+•	In Grafana, navigate to "Data Sources" and click "Add data source".
+•	Select "Prometheus" as the type and set the Prometheus server URL (e.g., `http://<prometheus-host>:9090`).
+Testing Data Source Connectivity
+•	After adding, click "Save & Test" to ensure Grafana can connect to Prometheus.
+•	Troubleshoot any connectivity issues by checking the URL and network configurations.
+Dashboard Design
+•	Creating a New Dashboard
+•	Click "+ New Dashboard" from the Grafana main menu.
+•	Add panels and choose the desired visualization types.
+Customization
+•	For each panel, select the data source and input your metric query.
+•	Customize the look and feel by adjusting panel settings.
+
+Saving and Sharing Dashboards
+•	Save your dashboard through the "Save dashboard" option.
+•	Share dashboards by clicking on the "Share" dashboard icon and copying the link or embedding the code.
+
+Using Grafana for Monitoring
+Dashboard Usage
+•	Use dashboards to get an overview of system metrics and health.
+•	Analyze real-time data to monitor the performance of microservices.
+
+Data Exploration
+Use Grafana's Explore feature to run queries and examine detailed data.
+
+Alerting with Grafana
+Creating Alerts
+•	Set up alert rules within panels by defining conditions that trigger alerts.
+•	Configure the alert message and frequency.
+Notification Channels
+•	Set up channels like email, Slack, or webhook through "Notification channels".
+•	Test notifications to confirm alert delivery.
+
+Troubleshooting and Tips
+Common Issues
+•	Address issues like data gaps, misconfigurations, and performance bottlenecks.
+•	Data source not connecting to the Grafana.
+•	General issues like TCP not enable in PC.
+References and Resources
+Grafana Documentation
+Grafana's official documentation(https://grafana.com/docs/
+Community Resources
+Explore forums, Grafana's [community site](https://community.grafana.com/), and GitHub for custom plugins and dashboards.
+
 
